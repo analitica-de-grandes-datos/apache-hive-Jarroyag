@@ -39,7 +39,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT lets, letters, COUNT(letters)
 FROM t0
 LATERAL VIEW
-    EXPLODE(c3) t0 AS letters, nums
+EXPLODE(c3) t0 AS letters, nums
 LATERAL VIEW
-    EXPLODE(c2) t0 AS lets
+EXPLODE(c2) t0 AS lets
 GROUP BY lets, letters;
