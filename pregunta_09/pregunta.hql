@@ -45,4 +45,7 @@ LOAD DATA LOCAL INPATH 'data1.csv' INTO TABLE tbl1;
 /*
     >>> Escriba su respuesta a partir de este punto <<<
 */
-
+INSERT OVERWRITE LOCAL DIRECTORY './output'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT d1.c1,d1.key,d1.value FROM temp2 d1, temp1 d0
+WHERE d1.c1 = d0.c1 AND d1.key = d0.key;
